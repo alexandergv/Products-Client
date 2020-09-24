@@ -31,12 +31,12 @@ export class ProductFormComponent implements OnInit {
         res =>{
           console.log(res);
           this.product = res;
+          console.log(this.product._id);
           this.edit = true;
         },
         err => console.log(err)
       );
     };
-    console.log(params.productID);
   }
 
   submitProduct() {
@@ -47,5 +47,13 @@ export class ProductFormComponent implements OnInit {
     )
     this.Router.navigate(['/']);
   }
+
+  updateProduct() {
+    this.ProductService.editProduct(this.product._id, this.product)
+    .subscribe(res => { console.log(res);
+    this.Router.navigate(['/']);
+    },
+      err => console.log(err))
+  };
 
 }
