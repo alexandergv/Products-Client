@@ -15,6 +15,9 @@
                     Price: {{product.price}} US$
                 </li>
             </ul>
+            <button class="btn btn-danger" (click)="deleteProduct(product._id)">Delete</button>
+            <button class="btn btn-primary" [routerLink]="['/product/edit']" 
+            [queryParams]="{productID: product._id}">Edit</button>
         </div>
       
     </div> 

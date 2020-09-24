@@ -28,4 +28,12 @@ products: product[] =  [];
       err =>console.log(err)
     )
   }
+
+  deleteProduct(id:string){
+    this.ProductService.deleteProduct(id)
+    .subscribe(
+      res => {this.getProducts()},
+      err => console.log(err)
+    );
+  }
 }
